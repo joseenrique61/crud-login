@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -12,6 +13,10 @@ class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, TwoFactorAuthenticatable;
+
+    public function role(): BelongsTo {
+        return $this->belongsTo(Role::class);
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +27,22 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id'
     ];
+
+    protected static function booted(): void
+    {
+        // Usamos el evento 'creating' que se dispara ANTES de guardar el modelo en la BD
+        static::creating(function ($user) {
+            // Verificamos si no se le ha asignado ya un rol, para no sobreescribirlo
+            if (! $user->role_id) {
+                $userRole = Role::where('role', 'user')->first();
+                if ($userRole) {
+                    $user->role_id = $userRole->id;
+                }
+            }
+        });
+    }
 
     /**
      * The attributes that should be hidden for serialization.
