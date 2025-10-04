@@ -44,4 +44,19 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    /**
+     * Indicates the user should have a specific role.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function withRole(string $roleName): Factory
+    {
+        return $this->state(function (array $attributes) use ($roleName) {
+            $role = Role::where('role', $roleName)->firstOrFail();
+            return [
+                'role_id' => $role->id,
+            ];
+        });
+    }
 }
