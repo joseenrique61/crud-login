@@ -25,7 +25,7 @@ Este es un proyecto de ejemplo que implementa un CRUD (Crear, Leer, Actualizar, 
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   https://github.com/joseenrique61/crud-login.git
    ```
 
 2. Instala las dependencias de PHP:
