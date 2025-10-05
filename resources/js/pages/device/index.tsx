@@ -41,9 +41,11 @@ export default function DeviceIndex({ devices }: { devices: Device[] }) {
                 <CardContent>
                     <div className="mb-4 flex justify-end">
                         {role === 'admin' && (
-                            <Link href={route('devices.create')}>
-                                <Button>Create Device</Button>
-                            </Link>
+                            <Button asChild>
+                                <Link href={route('devices.create')}>
+                                    Create Device
+                                </Link>
+                            </Button>
                         )}
                     </div>
                     <Table>
@@ -64,42 +66,43 @@ export default function DeviceIndex({ devices }: { devices: Device[] }) {
                                         {device.category.name}
                                     </TableCell>
                                     <TableCell className="flex gap-2">
-                                        <Link
-                                            href={route(
-                                                'devices.show',
-                                                device.id,
-                                            )}
-                                        >
-                                            <Button variant={'outline'}>
+                                        <Button variant={'outline'} asChild>
+                                            <Link
+                                                href={route(
+                                                    'devices.show',
+                                                    device.id,
+                                                )}
+                                            >
                                                 View
-                                            </Button>
-                                        </Link>
+                                            </Link>
+                                        </Button>
                                         {role === 'admin' && (
                                             <>
-                                                <Link
-                                                    href={route(
-                                                        'devices.edit',
-                                                        device.id,
-                                                    )}
+                                                <Button
+                                                    variant={'outline'}
+                                                    asChild
                                                 >
-                                                    <Button variant={'outline'}>
+                                                    <Link
+                                                        href={route(
+                                                            'devices.edit',
+                                                            device.id,
+                                                        )}
+                                                    >
                                                         Edit
-                                                    </Button>
-                                                </Link>
-                                                <Link
-                                                    href={route(
-                                                        'devices.destroy',
-                                                        device.id,
-                                                    )}
-                                                    method="delete"
-                                                    as="button"
-                                                >
-                                                    <Button
-                                                        variant={'destructive'}
+                                                    </Link>
+                                                </Button>
+                                                <Button variant={'destructive'} asChild>
+                                                    <Link
+                                                        href={route(
+                                                            'devices.destroy',
+                                                            device.id,
+                                                        )}
+                                                        method="delete"
+                                                        as="button"
                                                     >
                                                         Delete
-                                                    </Button>
-                                                </Link>
+                                                    </Link>
+                                                </Button>
                                             </>
                                         )}
                                     </TableCell>
