@@ -1,5 +1,11 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card';
 import {
     Table,
     TableBody,
@@ -10,7 +16,7 @@ import {
 } from '@/components/ui/table';
 import AppLayout from '@/layouts/app-layout';
 import { BreadcrumbItem, Device } from '@/types';
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -20,19 +26,27 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function DeviceIndex({ devices }: { devices: Device[] }) {
+    const role = usePage().props.auth.user.role.role;
+
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title='Devices'/>
+            <Head title="Devices" />
             <Card>
                 <CardHeader>
                     <CardTitle>Devices</CardTitle>
-                    <CardDescription>A list of all the devices in the system.</CardDescription>
+                    <CardDescription>
+                        A list of all the devices in the system.
+                    </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <div className="flex justify-end mb-4">
-                        <Link href={route('devices.create')}>
-                            <Button>Create Device</Button>
-                        </Link>
+                    <div className="mb-4 flex justify-end">
+                        {role === 'admin' && (
+                            <Button asChild>
+                                <Link href={route('devices.create')}>
+                                    Create Device
+                                </Link>
+                            </Button>
+                        )}
                     </div>
                     <Table>
                         <TableHeader>
@@ -48,21 +62,49 @@ export default function DeviceIndex({ devices }: { devices: Device[] }) {
                                 <TableRow key={device.id}>
                                     <TableCell>{device.name}</TableCell>
                                     <TableCell>{device.description}</TableCell>
-                                    <TableCell>{device.category.name}</TableCell>
+                                    <TableCell>
+                                        {device.category.name}
+                                    </TableCell>
                                     <TableCell className="flex gap-2">
-                                        <Link href={route('devices.show', device.id)}>
-                                            <Button variant={'outline'}>View</Button>
-                                        </Link>
-                                        <Link href={route('devices.edit', device.id)}>
-                                            <Button variant={'outline'}>Edit</Button>
-                                        </Link>
-                                        <Link
-                                            href={route('devices.destroy', device.id)}
-                                            method="delete"
-                                            as="button"
-                                        >
-                                            <Button variant={'destructive'}>Delete</Button>
-                                        </Link>
+                                        <Button variant={'outline'} asChild>
+                                            <Link
+                                                href={route(
+                                                    'devices.show',
+                                                    device.id,
+                                                )}
+                                            >
+                                                View
+                                            </Link>
+                                        </Button>
+                                        {role === 'admin' && (
+                                            <>
+                                                <Button
+                                                    variant={'outline'}
+                                                    asChild
+                                                >
+                                                    <Link
+                                                        href={route(
+                                                            'devices.edit',
+                                                            device.id,
+                                                        )}
+                                                    >
+                                                        Edit
+                                                    </Link>
+                                                </Button>
+                                                <Button variant={'destructive'} asChild>
+                                                    <Link
+                                                        href={route(
+                                                            'devices.destroy',
+                                                            device.id,
+                                                        )}
+                                                        method="delete"
+                                                        as="button"
+                                                    >
+                                                        Delete
+                                                    </Link>
+                                                </Button>
+                                            </>
+                                        )}
                                     </TableCell>
                                 </TableRow>
                             ))}
