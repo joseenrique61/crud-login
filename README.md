@@ -4,23 +4,47 @@
 [![PHP](https://img.shields.io/badge/PHP-8.4-blue.svg)](https://www.php.net/)
 [![Tests](https://github.com/joseenrique61/crud-login/actions/workflows/tests.yml/badge.svg)](https://github.com/joseenrique61/crud-login/actions/workflows/tests.yml)
 
+##  Índice
+
+- [CRUD de Dispositivos con Autenticación](#crud-de-dispositivos-con-autenticación)
+  - [Índice](#índice)
+  - [Descripción del Proyecto](#descripción-del-proyecto)
+  - [Estado del proyecto](#estado-del-proyecto)
+  - [Características de la aplicación y demostración](#características-de-la-aplicación-y-demostración)
+  - [Acceso al proyecto](#acceso-al-proyecto)
+    - [Requisitos](#requisitos)
+    - [Instalación](#instalación)
+    - [Ejecución](#ejecución)
+  - [Tecnologías utilizadas](#tecnologías-utilizadas)
+  - [Personas Contribuyentes](#personas-contribuyentes)
+  - [Personas Desarrolladoras del Proyecto](#personas-desarrolladoras-del-proyecto)
+  - [Licencia](#licencia)
+
+## Descripción del Proyecto
+
 Este es un proyecto de ejemplo que implementa un CRUD (Crear, Leer, Actualizar, Eliminar) de dispositivos con autenticación de usuarios. El proyecto está construido con Laravel en el backend y React con TypeScript en el frontend.
 
-## Características
+## Estado del proyecto
+
+El proyecto se encuentra actualmente en desarrollo.
+
+## Características de la aplicación y demostración
 
 - Autenticación de usuarios (registro, inicio de sesión, cierre de sesión).
 - CRUD de dispositivos.
 - Roles de usuario (administrador, usuario).
 - Interfaz de usuario moderna construida con React y Shadcn UI.
 
-## Requisitos
+## Acceso al proyecto
+
+### Requisitos
 
 - PHP >= 8.1
 - Composer
 - Node.js
 - npm
 
-## Instalación
+### Instalación
 
 1. Clona el repositorio:
 
@@ -66,7 +90,7 @@ Este es un proyecto de ejemplo que implementa un CRUD (Crear, Leer, Actualizar, 
    php artisan db:seed
    ```
 
-## Ejecución
+### Ejecución
 
 Para ejecutar el proyecto en modo de desarrollo, utiliza el siguiente comando:
 
@@ -83,3 +107,19 @@ Para ejecutar las pruebas, utiliza el siguiente comando:
 ```bash
 php artisan test
 ```
+
+## Tecnologías utilizadas
+
+- [Laravel](https://laravel.com/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [PHP](https://www.php.net/)
+- [Shadcn UI](https://ui.shadcn.com/)
+
+## Personas Desarrolladoras del Proyecto
+
+[<img src="https://www.github.com/joseenrique61.png" width=115><br><sub>José Enrique Cerezo</sub>](https://github.com/joseenrique61)
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
