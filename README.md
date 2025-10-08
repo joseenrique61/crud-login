@@ -16,7 +16,6 @@
     - [Instalación](#instalación)
     - [Ejecución](#ejecución)
   - [Tecnologías utilizadas](#tecnologías-utilizadas)
-  - [Personas Contribuyentes](#personas-contribuyentes)
   - [Personas Desarrolladoras del Proyecto](#personas-desarrolladoras-del-proyecto)
   - [Licencia](#licencia)
 
