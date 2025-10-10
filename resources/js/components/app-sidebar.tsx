@@ -16,7 +16,7 @@ import { Folder, LayoutGrid, Users } from 'lucide-react';
 import AppLogo from './app-logo';
 
 export function AppSidebar() {
-    const { auth } = usePage().props as any;
+    const { auth } = usePage().props;
     const role = auth.user.role.role;
 
     const mainNavItems: NavItem[] = [

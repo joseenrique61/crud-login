@@ -26,7 +26,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function UserIndex({ users }: { users: User[] }) {
-    const { auth } = usePage().props as any;
+    const { auth } = usePage().props;
     const role = auth.user.role.role;
 
     return (
