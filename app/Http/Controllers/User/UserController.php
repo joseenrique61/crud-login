@@ -90,14 +90,17 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:'.User::class.',email,'.$user->id,
             'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
-            'role_id' => 'required|exists:roles,id',
+            'role_id' => 'exists:roles,id',
         ]);
 
         $data = [
             'name' => $request->name,
             'email' => $request->email,
-            'role_id' => $request->role_id,
         ];
+
+        if ($request->role_id != null) {
+            $data['role_id'] = $request->role_id;
+        }
 
         if ($request->password) {
             $data['password'] = Hash::make($request->password);

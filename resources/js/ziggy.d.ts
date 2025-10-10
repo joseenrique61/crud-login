@@ -25,8 +25,6 @@ declare module 'ziggy-js' {
     "password.update": [],
     "appearance.edit": [],
     "two-factor.show": [],
-    "register": [],
-    "register.store": [],
     "password.request": [],
     "password.email": [],
     "password.reset": [
