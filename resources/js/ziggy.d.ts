@@ -17,37 +17,6 @@ declare module 'ziggy-js' {
     "two-factor.recovery-codes": [],
     "two-factor.regenerate-recovery-codes": [],
     "home": [],
-    "devices.index": [],
-    "devices.create": [],
-    "devices.store": [],
-    "devices.show": [
-        {
-            "name": "device",
-            "required": true,
-            "binding": "id"
-        }
-    ],
-    "devices.edit": [
-        {
-            "name": "device",
-            "required": true,
-            "binding": "id"
-        }
-    ],
-    "devices.update": [
-        {
-            "name": "device",
-            "required": true,
-            "binding": "id"
-        }
-    ],
-    "devices.destroy": [
-        {
-            "name": "device",
-            "required": true,
-            "binding": "id"
-        }
-    ],
     "dashboard": [],
     "profile.edit": [],
     "profile.update": [],
@@ -79,6 +48,68 @@ declare module 'ziggy-js' {
         }
     ],
     "verification.send": [],
+    "devices.create": [],
+    "devices.store": [],
+    "devices.edit": [
+        {
+            "name": "device",
+            "required": true,
+            "binding": "id"
+        }
+    ],
+    "devices.update": [
+        {
+            "name": "device",
+            "required": true,
+            "binding": "id"
+        }
+    ],
+    "devices.destroy": [
+        {
+            "name": "device",
+            "required": true,
+            "binding": "id"
+        }
+    ],
+    "devices.index": [],
+    "devices.show": [
+        {
+            "name": "device",
+            "required": true,
+            "binding": "id"
+        }
+    ],
+    "users.index": [],
+    "users.create": [],
+    "users.store": [],
+    "users.show": [
+        {
+            "name": "user",
+            "required": true,
+            "binding": "id"
+        }
+    ],
+    "users.edit": [
+        {
+            "name": "user",
+            "required": true,
+            "binding": "id"
+        }
+    ],
+    "users.update": [
+        {
+            "name": "user",
+            "required": true,
+            "binding": "id"
+        }
+    ],
+    "users.destroy": [
+        {
+            "name": "user",
+            "required": true,
+            "binding": "id"
+        }
+    ],
     "storage.local": [
         {
             "name": "path",
